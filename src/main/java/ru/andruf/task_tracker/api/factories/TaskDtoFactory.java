@@ -1,19 +1,17 @@
 package ru.andruf.task_tracker.api.factories;
 
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Component;
-import ru.andruf.task_tracker.api.dto.ProjectDto;
-import ru.andruf.task_tracker.store.entities.ProjectEntity;
+import ru.andruf.task_tracker.api.dto.TaskDto;
+import ru.andruf.task_tracker.store.entities.TaskEntity;
 
 @Component
-public class ProjectDtoFactory {
-    public ProjectDto makeProjectDto(ProjectEntity entity){
+public class TaskDtoFactory {
+    public TaskDto makeTaskDto(TaskEntity entity){
 
-        return ProjectDto.builder()
+        return TaskDto.builder()
                 .id(entity.getId())
                 .name(entity.getName())
+                .description(entity.getDescription())
                 .createdAt(entity.getCreatedAt())
                 .build();
     }
