@@ -88,14 +88,8 @@ public class ProjectController {
 
         Stream<ProjectEntity> projectStream = optionalPrefixName
                 .map(projectRepository::streamAllByNameStartsWithIgnoreCase)
-                .orElseGet(projectRepository::streamAll);
-        if (optionalPrefixName.isPresent()){
-            projectStream = projectRepository.streamAllByNameStartsWithIgnoreCase(optionalPrefixName.get());
-        }
-        else {
-            projectStream = projectRepository.streamAll();
+                .orElseGet(projectRepository::streamAllBy);
 
-        }
 
 
 
